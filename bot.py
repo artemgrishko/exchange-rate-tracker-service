@@ -1,11 +1,13 @@
 import asyncio
+import os
 import sqlite3
 
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from write_to_exel import get_file
 
-BOT_TOKEN = "7050283606:AAEZ5BUfh30XntmCiTJ4IPnB9t1gE8TjIpQ"
+
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 
 async def main():
