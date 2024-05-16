@@ -24,17 +24,17 @@ async def get_rate():
 
 
 async def save_rate_to_db_async(rate: str):
-    async with aiosqlite.connect('exchange_rates.db') as conn:
+    async with aiosqlite.connect("exchange_rates.db") as conn:
         await conn.execute(
-            '''CREATE TABLE IF NOT EXISTS exchange_rates (
+            """CREATE TABLE IF NOT EXISTS exchange_rates (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 datetime DATETIME DEFAULT CURRENT_TIMESTAMP,
-                exchange_rate TEXT)'''
+                exchange_rate TEXT)"""
         )
 
         await conn.execute(
-            '''INSERT INTO exchange_rates (datetime, exchange_rate) VALUES (?, ?)''',
-            (datetime.now(), rate)
+            """INSERT INTO exchange_rates (datetime, exchange_rate) VALUES (?, ?)""",
+            (datetime.now(), rate),
         )
 
         await conn.commit()
