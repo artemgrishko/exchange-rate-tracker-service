@@ -2,10 +2,14 @@ import asyncio
 import os
 import sqlite3
 
+from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
+
 from write_to_exel import get_file
 
+
+load_dotenv()
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
